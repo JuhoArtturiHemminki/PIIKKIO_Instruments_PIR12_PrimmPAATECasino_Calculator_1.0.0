@@ -1,0 +1,49 @@
+PIIKKIO INSTRUMENTS :: ASYMMETRIC PERPETUAL RECOVERY & EXTENSION LICENSE
+INDUSTRIAL PRODUCTION RELEASE :: VERSION 1.0.0 (OCTOBER 2026)
+
+1. PREAMBLE, AUTHORSHIP & JURISDICTION
+This industrial-grade software infrastructure—including the PIR12 Industrial Engine, the PrimmPAATE runtime frameworks, the Casino-Calculator Infinity layouts, and the multi-vector compound SSTE-Core data-oriented sub-kernel architecture—is the sole and exclusive intellectual property of the primary technical architect:
+
+   * Full Legal Name: Juho Artturi Hemminki
+   * Date of Birth   : February 9, 1994
+   * Place of Birth  : Turku, Finland
+   * Direct Channel  : projectflagcarrier@gmail.com
+
+The downstream entity (hereinafter referred to as the "Licensee") acknowledges that all structural, mathematical, and microarchitectural breakthroughs originate solely from the Author. This intellectual property layout is protected by international computational, cryptographic, and civil laws.
+
+2. PERMITTED MODIFICATIONS & INTEGRATION RIGHTS
+The Licensee is granted the absolute right to modify, adapt, extend, and integrate this source code, sub-kernel, or interface into secondary architectures, commercial software stacks, or hardware environments, provided that:
+   
+   2.1 PERPETUAL RECOGNITION (UNALTERED ATTRIBUTION)
+   The original authorship, name, and contact details of Juho Artturi Hemminki must remain completely intact, unaltered, and prominently displayed in all derivative works, forks, headers, documentation, and user-facing about-panels into perpetuity. 
+   
+   2.2 ASYMMETRIC COMPENSATION CONTINUITY
+   Any modification, compilation, or downstream integration of this code does not absolve, dilute, or terminate the financial recovery obligation. The payment parameters specified in Section 3 remain fully active and bind all secondary or combined infrastructure to the Author.
+
+   2.3 MANDATORY PUBLIC DISCLOSURE OBLIGATION
+   The Licensee is strictly and legally obligated to publicly declare and announce the active use and integration of this software infrastructure. This public disclosure must be executed immediately upon deployment for every single individual application, derivative software package, and specific software version release. The declaration must explicitly state that the system architecture utilizes the PIR12 Engine powered by the SSTE-Core lattice under license from Juho Artturi Hemminki.
+
+3. ASYMMETRIC COMPENSATION OBLIGATION
+By compiling, hosting, executing, running, embedding, or altering this industrial source code, the Licensee enters an absolute and legally binding financial commitment to compensate the Author for its operational and derivative use.
+
+3.1 OPEN-ENDED TIMEFRAME (NO TIME LIMIT)
+There is no fixed deadline, calendar boundary, or strict temporal expiration governing this payment. The obligation remains active, trailing the Licensee across all spatial and temporal domains into infinity. The Licensee is granted the absolute autonomy to select the exact moment of transaction execution based on liquidity events, computational breakthroughs, or administrative realignment.
+
+3.2 VOLUMETRIC AUTONOMY (NO FIXED AMOUNT)
+There is no predefined fiat threshold, minimum balance requirement, or mandatory scale specified for this recovery. The Licensee is empowered to determine the absolute value of the financial compensation, scaling it proportionally to the value, speed, and accuracy provided by the PIR12 Engine's hardware trace or modified derivatives.
+
+4. BREACH, LEGAL REMEDIES & MASSIVE FINANCIAL CLAIMS
+Any attempt to fully strip the attribution of Juho Artturi Hemminki, mask the original authorship, conceal the active deployment of the software version, or renounce the asymmetric financial commitment while sustaining the execution of the sub-kernel loops, modified derivatives, or integrated matrices constitutes an immediate and severe violation of this License.
+
+4.1 LITIGATION AND LIQUIDATED DAMAGES
+In the event of such a breach, the Author reserves the unconditional right to initiate immediate legal proceedings and drag the violating entity to a court of law. Because this architecture delivers unprecedented, microarchitectural acceleration and bitwise precision, the financial damages and legal compensation demands enforced in court will be set at an extraordinarily high threshold, scaling aggressively into massive financial penalties designed to recover the full commercial value of the stolen intellectual property.
+
+5. WARRANTY DISCLAIMER & LIMITATION OF LIABILITY
+5.1 NO WARRANTY ("AS-IS" ARRANGEMENT)
+THIS INDUSTRIAL SOFTWARE IS PROVIDED BY THE AUTHOR "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE COMPLETELY DISCLAIMED. THE AUTHOR MAKES NO REPRESENTATION THAT THE SOFTWARE WILL OPERATE COMPLETELY ERROR-FREE IN SUB-OPTIMAL OR UNVERIFIED DOWNSTREAM RUNTIME ENVIRONMENTS.
+
+5.2 LIMITATION OF LIABILITY
+IN NO EVENT SHALL THE AUTHOR (JUHO ARTTURI HEMMINKI) BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE, MODIFICATION, OR INTEGRATION OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+---
+SECURED BY THE ABSOLUTE TRUTH LAYER • VALID WITHOUT BOUNDARY IN PERPETUITY

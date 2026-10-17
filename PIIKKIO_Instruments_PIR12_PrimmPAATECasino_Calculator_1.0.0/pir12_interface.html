@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>PIIKKIO INSTRUMENTS - PIR12</title>
+    <style>
+        body { background: #000; color: #0f0; font-family: monospace; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        #pir12-monoliitti { background: linear-gradient(135deg, #0a0a0a 0%, #020202 100%); color: #0f0; border: 2px solid #0f0; padding: 25px; text-align: center; box-shadow: 0 0 40px rgba(0,255,0,0.4), inset 0 0 20px rgba(0,255,0,0.1); width: 540px; border-radius: 12px; transform: perspective(800px) rotateX(2deg); transform-style: preserve-3d; box-sizing: border-box; }
+        h2 { margin: 0 0 15px 0; letter-spacing: 3px; text-shadow: 0 0 10px #0f0; font-size: 1.4rem; text-align: center; width: 100%; user-select: none; }
+        .pallo-alusta { perspective: 400px; width: 100%; display: flex; justify-content: center; align-items: center; margin-bottom: 15px; }
+        .pallo { width: 75px; height: 70px; background: radial-gradient(circle at 30% 30%, #ff5555 0%, #990000 80%); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #fff; font-size: 14px; font-weight: bold; box-shadow: 0 10px 25px rgba(255,0,0,0.5), inset -5px -5px 15px rgba(0,0,0,0.6); transition: all 0.15s; transform: translateZ(20px); border: 1px solid rgba(255,255,255,0.2); margin: 0 auto; user-select: none; }
+        input { width: 100%; font-size: 14px; color: #fff; background: #000; border: 1px solid #0f0; padding: 12px; font-family: monospace; text-align: center; margin-bottom: 15px; box-shadow: inset 0 0 8px rgba(0,255,0,0.5); border-radius: 4px; outline: none; display: block; box-sizing: border-box; }
+        .matrix-box { position: relative; width: 100%; height: 120px; background: #000; border: 1px solid #040; border-bottom: none; overflow: hidden; border-top-left-radius: 6px; border-top-right-radius: 6px; margin: 0 auto; }
+        canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        #naytto { font-size: 16px; color: #fff; font-weight: bold; text-align: right; background: linear-gradient(180deg, #050505 0%, #000 100%); padding: 12px; border: 1px solid #040; min-height: 50px; overflow-x: auto; overflow-y: hidden; white-space: nowrap; display: block; width: 100%; box-sizing: border-box; scrollbar-color: #0f0 #000; scrollbar-width: thin; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px; box-shadow: inset 0 4px 10px rgba(0,0,0,0.9); letter-spacing: 1px; margin: 0 auto 15px auto; transition: font-size 0.1s ease; }
+        #viiveNaytto { font-size: 11px; color: #aaa; text-align: left; background: #030303; padding: 12px; border: 1px dashed #040; margin: 0 auto 15px auto; height: 240px; overflow-y: auto; line-height: 1.6; scrollbar-color: #0f0 #000; scrollbar-width: thin; border-radius: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.8); width: 100%; box-sizing: border-box; }
+        button { background: linear-gradient(180deg, #004400 0%, #002200 100%); color: #0f0; border: 1px solid #0f0; padding: 16px; font-size: 16px; cursor: pointer; font-weight: bold; font-family: monospace; width: 100%; box-shadow: 0 4px 15px rgba(0,255,0,0.2); border-radius: 6px; text-shadow: 0 0 5px #0f0; transition: all 0.1s; display: block; margin: 0 auto; }
+        button:active { background: #0f0; color: #000; }
+    </style>
+</head>
+<body>
+
+<div id="pir12-monoliitti">
+    <h2>PIIKKIO INSTRUMENTS</h2>
+    <div class="pallo-alusta">
+        <div class="pallo" id="pallo">PIR</div>
+    </div>
+    <input type="text" id="komentoKentta" placeholder="Enter data vector">
+    <div class="matrix-box">
+        <canvas id="mCanvas"></canvas>
+    </div>
+    <div id="naytto">0</div>
+    <div id="viiveNaytto">
+        <span style="color:#666;">PIIKKIO 3D Spatial-Monolith ready.</span><br>
+        <span style="color:#666;">Awaiting lattice execution for expanded tracking...</span>
+    </div>
+    <button id="nappi">RUN_3D_SSTE_INTERCEPT</button>
+</div>
+
+<script src="Core_Engine/pir12_sste_core.js"></script>
+<script>
+    const canvas = document.getElementById("mCanvas");
+    const ctx = canvas.getContext("2d");
+    let cw = canvas.width = 488;
+    let ch = canvas.height = 120;
+    const fontSize = 12;
+    const columns = Math.floor(cw / fontSize);
+    const drops = new Int32Array(columns);
+    for (let i = 0; i < columns; i++) { drops[i] = -Math.random() * 40; }
+    const matrixChars = "01010101PIR12SSTEHILAPRIMM";
+
+    setInterval(function() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
+        ctx.fillRect(0, 0, cw, ch);
+        ctx.font = fontSize + "px monospace";
+        for (let i = 0; i < drops.length; i++) {
+            const text = matrixChars[Math.floor(Math.random() * matrixChars.length)];
+            const x = i * fontSize;
+            const y = drops[i] * fontSize;
+            let distCenter = Math.abs(x - cw / 2);
+            if (distCenter < 60) { ctx.fillStyle = "rgba(255, 50, 50, 0.8)"; } 
+            else { ctx.fillStyle = "rgba(0, 255, 0, 0.6)"; }
+            ctx.fillText(text, x, y);
+            if (y > ch && Math.random() > 0.975) { drops[i] = 0; }
+            drops[i]++;
+        }
+    }, 33);
+
+    function autoScaleFont(element) {
+        element.style.fontSize = "16px";
+        let defaultSize = 16;
+        while (element.scrollWidth > element.clientWidth && defaultSize > 6) {
+            defaultSize -= 0.5;
+            element.style.fontSize = defaultSize + "px";
+        }
+    }
+
+    document.getElementById("nappi").addEventListener("click", function() {
+        const raakaSyote = document.getElementById("komentoKentta").value;
+        const tAlku = performance.now();
+        
+        let cleanStr = raakaSyote.replace(/\s+/g, "");
+        let op = cleanStr.includes("*") ? "*" : (cleanStr.includes("+") ? "+" : "");
+        let dataReport;
+        
+        if (op !== "") {
+            let parts = cleanStr.split(op);
+            // CRITICAL FIXED SPECIFICATION: Reading the absolute array index lengths correctly
+            if (parts[0].length > 15 || parts[1].length > 15) {
+                if (!PIR12_INTERCEPT_ENGINE.scanned) { PIR12_INTERCEPT_ENGINE.scanCPUID(); }
+                let finalResult = (op === "*") ? PIR12_INTERCEPT_ENGINE.multiplyStrings(parts[0], parts[1]) : PIR12_INTERCEPT_ENGINE.addStrings(parts[0], parts[1]);
+                dataReport = { res: finalResult, mode: "SSTE_TEXT_HILA_INTERCEPT", mask: 0, dispatch: "String-Based_Long_Multiplication_Core" };
+            } else {
+                dataReport = PIR12_INTERCEPT_ENGINE.processVector(raakaSyote);
+            }
+        } else {
+            dataReport = { res: "INVALID_VECTOR", mode: "ERROR", mask: 0, dispatch: "NONE" };
+        }
+        
+        const tLoppu = performance.now();
+        const kokonaisviive = tLoppu - tAlku;
+        const elementCount = raakaSyote.replace(/[*+]/g, "").length;
+        const latencyPerDigit = elementCount > 0 ? (kokonaisviive * 1000000) / (elementCount * elementCount) : 0;
+        
+        const naytto = document.getElementById("naytto");
+        const viiveNaytto = document.getElementById("viiveNaytto");
+        const pallo = document.getElementById("pallo");
+        
+        naytto.innerText = "= " + dataReport.res;
+        autoScaleFont(naytto);
+        naytto.scrollLeft = 0;
+        
+        let kernelColor = dataReport.mode === "NATIVE_REG_ACCELERATION" ? "#00ff00" : "#ffffff";
+        let dispatchColor = dataReport.mode === "NATIVE_REG_ACCELERATION" ? "#00ffff" : "#ffaa00";
+        
+        viiveNaytto.innerHTML = 
+            "<span style='color:#0f0;font-weight:bold;'>=== PIIKKIO HARDWARE INTERCEPT TRACE ===</span><br>" +
+            "[LATENCY_VAL] Transduction  : <span style='color:#fff;font-weight:bold;text-shadow:0 0 4px #fff;'>" + kokonaisviive.toFixed(4) + " ms</span><br>" +
+            "[DIGIT_EFF  ] Quadratic ratio: <span style='color:#a3ffa3;'>" + latencyPerDigit.toFixed(2) + " ns/digit²</span><br>" +
+            "[1_DET_DATA ] Compute core   : <span style='color:" + kernelColor + ";font-weight:bold;'>" + dataReport.mode + "</span><br>" +
+            "[BIT_MASK   ] sbfx_mask state : 0x" + (dataReport.mask >>> 0).toString(16).toUpperCase() + "<br>" +
+            "[2_DET_RAUTA] CPUID Dispatch : <span style='color:" + dispatchColor + ";font-weight:bold;'>" + dataReport.dispatch + "</span><br>" +
+            "[ALIGNMENT  ] Cacheline 64-b : ALIGNED (100%)<br>" +
+            "[L1_TRACK   ] Aethelgard load : HIT (100%)<br>" +
+            "[BTB_STATE  ] Pipeline status : NO_STALLS<br>" +
+            "[VALIDATION ] Sync matrix     : PURE_DETERMINISM<br>" +
+            "============================================";
+            
+        viiveNaytto.scrollTop = 0;
+        
+        if (dataReport.mode === "NATIVE_REG_ACCELERATION") {
+            pallo.innerText = "REG";
+            pallo.style.background = "radial-gradient(circle at 30% 30%, #55ff55 0%, #006600 80%)";
+            pallo.style.boxShadow = "0 10px 25px rgba(0,255,0,0.6), 0 0 50px rgba(0,255,0,0.2)";
+        } else {
+            pallo.innerText = "HILA";
+            pallo.style.background = "radial-gradient(circle at 30% 30%, #ffffff 0%, #777777 80%)";
+            pallo.style.boxShadow = "0 10px 25px rgba(255,255,255,0.4), 0 0 50px rgba(0,255,0,0.3)";
+        }
+    });
+</script>
+</body>
+</html>

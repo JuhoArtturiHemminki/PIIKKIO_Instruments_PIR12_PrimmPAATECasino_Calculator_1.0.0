@@ -1,0 +1,16 @@
+{
+  "name": "piikkio-instruments-pir12",
+  "version": "1.0.0",
+  "description": "PrimmPAATE Casino-Calculator Infinity Industrial Release",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --mac"
+  },
+  "author": "Juho Artturi Hemminki",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^32.0.0",
+    "electron-builder": "^24.13.3"
+  }
+}
